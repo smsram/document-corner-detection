@@ -72,3 +72,4 @@ def test_draw_document_overlay():
 
     assert annotated.shape == img.shape
     assert annotated.dtype == img.dtype
+

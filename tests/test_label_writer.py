@@ -41,3 +41,4 @@ def test_write_yolo_label_pixel_coords(tmp_path: Path):
 def pytest_approx(val, tol=1e-4):
     import pytest
     return pytest.approx(val, abs=tol)
+
