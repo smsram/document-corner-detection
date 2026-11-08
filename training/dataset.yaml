@@ -1,0 +1,47 @@
+# dataset.yaml
+# =============================================================================
+# YOLOv8-seg Dataset Configuration — Document Corner Detection
+# =============================================================================
+#
+# USAGE
+# -----
+# Edit the `path` key below to point to the root of your assembled YOLO dataset
+# (the directory that contains images/ and labels/ subdirectories).
+#
+# After editing, verify the structure with:
+#   python training/train.py --data training/dataset.yaml
+#
+# EXPECTED DIRECTORY LAYOUT
+# --------------------------
+# <path>/
+#   images/
+#     train/   ← training images (DocCorner, Doc3D, MIDV-500, SmartDoc, CORD, Synthetic)
+#     val/     ← validation images (Mendeley Corner benchmark)
+#   labels/
+#     train/   ← YOLO segmentation .txt files (class_id x1 y1 x2 y2 ...)
+#     val/
+#
+# DATASET ASSEMBLY
+# ----------------
+# The dataset is assembled by running the cells in Paper_Corner.ipynb
+# (or equivalent scripts) which:
+#   1. Downloads and streams images from Hugging Face / public URLs.
+#   2. Converts all annotation formats to normalised YOLO-seg polygon labels.
+#   3. Writes images to images/train/ and images/val/.
+#   4. Writes labels to labels/train/ and labels/val/.
+#
+# See the README for dataset acknowledgements and download instructions.
+# =============================================================================
+
+# Root path of the assembled YOLO dataset
+# Update this to your local dataset directory before training.
+path: /path/to/your/yolo_dataset
+
+# Relative paths to image directories (from `path`)
+train: images/train
+val:   images/val
+
+# Class definitions (single class: document)
+names:
+  0: document
+
